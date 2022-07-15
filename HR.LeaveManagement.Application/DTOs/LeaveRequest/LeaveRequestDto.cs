@@ -1,6 +1,9 @@
-namespace HR.LeaveManagement.Application.DTOs;
+using HR.LeaveManagement.Application.DTOs.Common;
+using HR.LeaveManagement.Application.DTOs.LeaveType;
 
-public class LeaveRequestDto
+namespace HR.LeaveManagement.Application.DTOs.LeaveRequest;
+
+public class LeaveRequestDto : BaseDto
 {
     public DateTime StartDate { get; set; }
     
@@ -14,7 +17,7 @@ public class LeaveRequestDto
     
     public string RequestComments { get; set; }
     
-    public DateTime DateActioned { get; set; }
+    public DateTime? DateActioned { get; set; }
     
     public bool? Approved { get; set; }
     
