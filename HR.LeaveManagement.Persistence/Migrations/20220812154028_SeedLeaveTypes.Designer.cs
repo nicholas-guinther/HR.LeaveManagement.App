@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace HR.LeaveManagement.Persistence.Migrations
 {
     [DbContext(typeof(HrLeaveManagementDbContext))]
-    [Migration("20220810205609_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20220812154028_SeedLeaveTypes")]
+    partial class SeedLeaveTypes
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -148,6 +148,28 @@ namespace HR.LeaveManagement.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("LeaveTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedBy = "Admin",
+                            DateCreated = new DateTime(2022, 8, 12, 15, 40, 28, 605, DateTimeKind.Utc).AddTicks(1030),
+                            DefaultDays = 10,
+                            LastModifiedBy = "Admin",
+                            LastModifiedDate = new DateTime(2022, 8, 12, 15, 40, 28, 605, DateTimeKind.Utc).AddTicks(1030),
+                            Name = "Vacation"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedBy = "Admin",
+                            DateCreated = new DateTime(2022, 8, 12, 15, 40, 28, 605, DateTimeKind.Utc).AddTicks(1030),
+                            DefaultDays = 12,
+                            LastModifiedBy = "Admin",
+                            LastModifiedDate = new DateTime(2022, 8, 12, 15, 40, 28, 605, DateTimeKind.Utc).AddTicks(1030),
+                            Name = "Sick"
+                        });
                 });
 
             modelBuilder.Entity("HR.LeaveManagement.Domain.LeaveAllocation", b =>

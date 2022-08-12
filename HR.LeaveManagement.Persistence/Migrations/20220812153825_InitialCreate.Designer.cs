@@ -3,6 +3,7 @@ using System;
 using HR.LeaveManagement.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace HR.LeaveManagement.Persistence.Migrations
 {
     [DbContext(typeof(HrLeaveManagementDbContext))]
-    partial class HrLeaveManagementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220812153825_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -146,28 +148,6 @@ namespace HR.LeaveManagement.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("LeaveTypes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedBy = "Admin",
-                            DateCreated = new DateTime(2022, 8, 12, 15, 40, 28, 605, DateTimeKind.Utc).AddTicks(1030),
-                            DefaultDays = 10,
-                            LastModifiedBy = "Admin",
-                            LastModifiedDate = new DateTime(2022, 8, 12, 15, 40, 28, 605, DateTimeKind.Utc).AddTicks(1030),
-                            Name = "Vacation"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedBy = "Admin",
-                            DateCreated = new DateTime(2022, 8, 12, 15, 40, 28, 605, DateTimeKind.Utc).AddTicks(1030),
-                            DefaultDays = 12,
-                            LastModifiedBy = "Admin",
-                            LastModifiedDate = new DateTime(2022, 8, 12, 15, 40, 28, 605, DateTimeKind.Utc).AddTicks(1030),
-                            Name = "Sick"
-                        });
                 });
 
             modelBuilder.Entity("HR.LeaveManagement.Domain.LeaveAllocation", b =>
